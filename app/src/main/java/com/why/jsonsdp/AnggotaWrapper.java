@@ -23,20 +23,28 @@ public class AnggotaWrapper {
 
     public static class Anggota {
         @Expose
+        @SerializedName("id")
         private String id;
         @Expose
+        @SerializedName("nama")
         private String nama;
         @Expose
+        @SerializedName("alamat")
         private String alamat;
         @Expose
+        @SerializedName("username")
         private String username;
         @Expose
+        @SerializedName("password")
         private String password;
         @Expose
+        @SerializedName("latitude")
         private String latitude;
         @Expose
+        @SerializedName("longitude")
         private String longitude;
         @Expose
+        @SerializedName("foto")
         private String foto;
 
         public String getId() {
