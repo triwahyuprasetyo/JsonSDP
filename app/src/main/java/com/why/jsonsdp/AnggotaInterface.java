@@ -14,8 +14,8 @@ import retrofit.http.Query;
 
 public interface AnggotaInterface {
     @GET("/daftaranggota.php")
-    void getStreams(@Query(" ") String q, Callback<List<AnggotaPojo>> callback);
+    void getDataAnggota(Callback<AnggotaWrapper> callback);
 
     @POST("/addanggota.php")
-    void tambahAnggota(@Body AnggotaPojo body, Callback<AnggotaPojo> callBack);
+    void tambahAnggota(@Body AnggotaWrapper body, Callback<AnggotaWrapper> callBack);
 }
