@@ -11,9 +11,24 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/list_anggota"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/list_anggota"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <Button
+            android:text="Add Anggota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonAddAnggota" />
+
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

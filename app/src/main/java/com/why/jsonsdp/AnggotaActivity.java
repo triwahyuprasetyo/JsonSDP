@@ -1,12 +1,14 @@
 package com.why.jsonsdp;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -28,12 +30,23 @@ public class AnggotaActivity extends AppCompatActivity {
     ProgressDialog pd;
     private JSONObject jObject;
     private String jsonResult = "";
+    private Button buttonAddAnggota;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anggota);
         getdata();
+        obj=this;
+
+        buttonAddAnggota = (Button) findViewById(R.id.buttonAddAnggota);
+        buttonAddAnggota.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), AddActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     public void getdata() { //final String parameter) {
@@ -108,7 +121,7 @@ public class AnggotaActivity extends AppCompatActivity {
                     } catch (JSONException e) {
                         // TODO Auto-generated catch block
                         Toast.makeText(getBaseContext(), "Gagal",
-                                Toast.LENGTH_LONG).show();
+                                Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
 
