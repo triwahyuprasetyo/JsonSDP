@@ -30,7 +30,7 @@ public class AnggotaActivity extends AppCompatActivity {
     ProgressDialog pd;
     private JSONObject jObject;
     private String jsonResult = "";
-    private Button buttonAddAnggota;
+    private Button buttonAddAnggota, buttonRetrofitTest1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,15 @@ public class AnggotaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), AddActivity.class);
+                startActivity(i);
+            }
+        });
+
+        buttonRetrofitTest1 = (Button) findViewById(R.id.buttonRetrofit1Test);
+        buttonRetrofitTest1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Retrofit1TestActivity.class);
                 startActivity(i);
             }
         });

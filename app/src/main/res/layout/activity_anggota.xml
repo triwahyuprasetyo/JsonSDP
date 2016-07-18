@@ -23,11 +23,24 @@
                 android:layout_height="match_parent" />
         </LinearLayout>
 
-        <Button
-            android:text="Add Anggota"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonAddAnggota" />
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
+            <Button
+                android:text="Add Anggota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonAddAnggota" />
+
+            <Button
+                android:text="Test Retrofit 1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonRetrofit1Test"/>
+        </LinearLayout>
 
     </LinearLayout>
 
