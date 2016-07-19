@@ -17,7 +17,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AnggotaActivity extends AppCompatActivity {
-    public static AnggotaActivity obj;
     String[] daftarId;
     String[] daftarNama;
     String[] daftarAlamat;
@@ -36,8 +35,6 @@ public class AnggotaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anggota);
-        getdata();
-        obj=this;
 
         buttonAddAnggota = (Button) findViewById(R.id.buttonAddAnggota);
         buttonAddAnggota.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +53,12 @@ public class AnggotaActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getdata();
     }
 
     public void getdata() { //final String parameter) {

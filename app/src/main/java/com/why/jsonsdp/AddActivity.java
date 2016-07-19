@@ -43,7 +43,6 @@ public class AddActivity extends AppCompatActivity {
                     pd.dismiss();
                     //getdata();
                     finish();
-                    AnggotaActivity.obj.getdata();
                     // btnloginlogin.setEnabled(true);
                 }
             };
@@ -94,7 +93,7 @@ public class AddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-
+        setTitle("Add - Retrofit 1.9");
         editTextNama = (EditText) findViewById(R.id.editTextNama);
         editTextAlamat = (EditText) findViewById(R.id.editTextAlamat);
         editTextUsername = (EditText) findViewById(R.id.editTextUsername);
@@ -140,7 +139,6 @@ public class AddActivity extends AppCompatActivity {
                             }
                         });
                 finish();
-                AnggotaActivity.obj.getdata();
             }
 
         });
