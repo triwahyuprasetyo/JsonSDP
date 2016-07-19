@@ -32,9 +32,12 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".AnggotaActivity"></activity>
+        <activity android:name=".AnggotaActivity" />
         <activity android:name=".AddActivity" />
         <activity android:name=".Retrofit1TestActivity">
+
+        </activity>
+        <activity android:name=".Retrofit2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

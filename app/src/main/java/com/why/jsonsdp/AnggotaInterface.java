@@ -1,18 +1,12 @@
 package com.why.jsonsdp;
 
-import retrofit.Callback;
-import retrofit.client.Response;
-import retrofit.http.Body;
-import retrofit.http.Field;
-import retrofit.http.FormUrlEncoded;
-import retrofit.http.GET;
-import retrofit.http.POST;
-
 /**
  * Created by sdp03 on 7/18/16.
  */
 
 public interface AnggotaInterface {
+    /*
+    //Retrofit 1.9
     @GET("/daftaranggota.php")
     void getDataAnggota(Callback<AnggotaWrapper> callback);
 
@@ -29,4 +23,5 @@ public interface AnggotaInterface {
                            @Field("longitude") String longitude,
                            @Field("foto") String foto,
                            Callback<Response> callback);
+    */
 }

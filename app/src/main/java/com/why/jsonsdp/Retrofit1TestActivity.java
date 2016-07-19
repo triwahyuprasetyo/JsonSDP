@@ -5,15 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import retrofit.Callback;
-import retrofit.RestAdapter;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 public class Retrofit1TestActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -41,6 +34,8 @@ public class Retrofit1TestActivity extends AppCompatActivity implements View.OnC
     }
 
     private void retrieveData() {
+        /*
+        //Retrofit 1.9
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint("http://triwahyuprasetyo.xyz")
                 .build();
@@ -71,7 +66,9 @@ public class Retrofit1TestActivity extends AppCompatActivity implements View.OnC
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                 Log.d("SDP", "Error :: " + error.getMessage());
             }
+
         });
+        */
     }
 
     @Override
