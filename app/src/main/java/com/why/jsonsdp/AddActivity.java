@@ -130,12 +130,12 @@ public class AddActivity extends AppCompatActivity {
                         a.getFoto(), new Callback<Response>() {
                             @Override
                             public void success(Response response, Response response2) {
-                                Toast.makeText(getApplicationContext(), "Success : " + response2.getStatus(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Add Success : " + response2.getStatus(), Toast.LENGTH_LONG).show();
                             }
 
                             @Override
                             public void failure(RetrofitError error) {
-                                Toast.makeText(getApplicationContext(), "Error : " + error.getMessage(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Add Error : " + error.getMessage(), Toast.LENGTH_LONG).show();
                             }
                         });
                 finish();
