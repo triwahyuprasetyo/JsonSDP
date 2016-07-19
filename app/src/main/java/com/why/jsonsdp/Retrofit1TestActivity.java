@@ -36,8 +36,9 @@ public class Retrofit1TestActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onResume() {
         super.onResume();
-        retrieveData();
+        //retrieveData();
         Log.i("SDP Retrofit", "On Resume Method");
+        new RunRetrofit().run();
     }
 
     private void retrieveData() {
@@ -49,7 +50,7 @@ public class Retrofit1TestActivity extends AppCompatActivity implements View.OnC
             @Override
             public void success(AnggotaWrapper anggotaWrapper, Response response) {
                 Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
-                daftarNama = new String[anggotaWrapper.getAnggota().size()];
+                String[] daftarNama = new String[anggotaWrapper.getAnggota().size()];
                 int i = 0;
                 for (AnggotaWrapper.Anggota anggota : anggotaWrapper.getAnggota()) {
                     Log.d("SDP", "Anggota :: " + anggota.getId());
@@ -79,6 +80,42 @@ public class Retrofit1TestActivity extends AppCompatActivity implements View.OnC
         if (view.getId() == buttonIntentAddAnggota.getId()) {
             Intent moveToAddAnggota = new Intent(getApplicationContext(), AddActivity.class);
             startActivity(moveToAddAnggota);
+        }
+    }
+
+    private class RunRetrofit {
+        private void run() {
+            RestAdapter restAdapter = new RestAdapter.Builder()
+                    .setEndpoint("http://triwahyuprasetyo.xyz")
+                    .build();
+            AnggotaInterface anggotaService = restAdapter.create(AnggotaInterface.class);
+            anggotaService.getDataAnggota(new Callback<AnggotaWrapper>() {
+                @Override
+                public void success(AnggotaWrapper anggotaWrapper, Response response) {
+                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                    daftarNama = new String[anggotaWrapper.getAnggota().size()];
+                    int i = 0;
+                    for (AnggotaWrapper.Anggota anggota : anggotaWrapper.getAnggota()) {
+                        Log.d("SDP", "Anggota :: " + anggota.getId());
+                        Log.d("SDP", "Anggota :: " + anggota.getNama());
+                        Log.d("SDP", "Anggota :: " + anggota.getAlamat());
+                        Log.d("SDP", "Anggota :: " + anggota.getUsername());
+                        Log.d("SDP", "Anggota :: " + anggota.getPassword());
+                        Log.d("SDP", "=======================================");
+                        daftarNama[i] = anggota.getNama();
+                        i++;
+                    }
+                    listViewRetrofit.setAdapter(new ArrayAdapter(Retrofit1TestActivity.this, android.R.layout.simple_list_item_1, daftarNama));
+                    listViewRetrofit.invalidate();
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Toast.makeText(getApplicationContext(), "Errorr", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                    Log.d("SDP", "Error :: " + error.getMessage());
+                }
+            });
         }
     }
 }
